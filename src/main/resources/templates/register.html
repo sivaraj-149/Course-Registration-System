@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Course Registration</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Course Registration System</h1>
+        <form action="/courses/register" method="post">
+            <label>Name:</label>
+            <input type="text" name="name">
+            <label>Email:</label>
+            <input type="email" name="email">
+            <label>Course:</label>
+            <select name="courseName">
+                <option th:each="course : ${courses}"
+                        th:value="${course.courseName}"
+                        th:text="${course.courseName}">
+                </option>
+            </select>
+            <button type="submit">
+                Register
+            </button>
+        </form>
+        <br>
+        <a href="/students">View Enrolled Students</a>
+    </div>
+</body>
+</html>
